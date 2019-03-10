@@ -21,7 +21,7 @@ $config = [
     'facebook' => [
         'token' => getenv('CHOUPG_FACEBOOK_TOKEN'),
         'app_secret' => getenv('CHOUPG_FACEBOOK_APP_SECRET'),
-        'verification' => getenv('CHOUPG_FACEBOOK_TOKEN')
+        'verification' => getenv('CHOUPG_FACEBOOK_VERIFICATION')
     ]
 ];
 
