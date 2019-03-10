@@ -10,22 +10,41 @@
 require_once 'global_config.php';
 require_once 'vendor/autoload.php';
 
-use System\RouteManager\Manager as RouteManage;
+use BotMan\BotMan\BotMan;
+use BotMan\BotMan\Drivers\DriverManager;
+use BotMan\Drivers\Facebook\FacebookDriver;
+use BotMan\BotMan\BotManFactory;
 
+DriverManager::loadDriver(FacebookDriver::class);
 
-$route = new RouteManage();
+$config = [
+    'facebook' => [
+        'token' => getenv('CHOUPG_FACEBOOK_TOKEN'),
+        'app_secret' => getenv('CHOUPG_FACEBOOK_APP_SECRET'),
+        'verification' => getenv('CHOUPG_FACEBOOK_TOKEN')
+    ]
+];
 
-$controllerName = $route->getControllerNameFromRoute();
-$object = $controllerName;
+$botMan=BotManFactory::create($config);
+// Give the bot something to listen for.
+$botMan->hears('hello', function (BotMan $bot) {
+    $bot->reply('你是不是推坑王？');
+});
 
-if ( $controllerName == false ){
-    $controllerName = ucfirst($route->getControllerName()) . 'Controller';
-    $object = "\\App\\Controllers\\".$controllerName;
-}
+$botMan->hears('Miles', function (BotMan $bot) {
+    $bot->reply('你是不是推坑王？');
+});
 
+$botMan->hears('options test' , function ( BotMan $botMan ) {
+    $botMan->reply(ButtonTemplate::create('Do you want to know more about BotMan?')
+        ->addButton(ElementButton::create('Tell me more')
+            ->type('postback')
+            ->payload('tellmemore')
+        )
+        ->addButton(ElementButton::create('Show me the docs')
+            ->url('http://botman.io/')
+        )
+    );
+});
 
-if ( class_exists($object)) {
-    /** @var \System\Controller\BaseController $controller */
-    $controller = new $object();
-    $controller->init()->run();
-}
+$botMan->listen();
