@@ -26,8 +26,8 @@ class ChoupgController extends BaseController
         $this->botMan->hears('Miles' , function (BotMan $botMan) {
             $botMan->reply("你是不是推坑王？？");
         });
-        $this->botMan->hears('Hello world' , function (BotMan $botMan ) {
-            $botMan->reply("hello world");
+        $this->botMan->hears('我們一起學貓叫' , function (BotMan $botMan ) {
+            $botMan->reply("一起 喵喵喵喵喵");
         });
     }
 
