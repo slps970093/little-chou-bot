@@ -3,25 +3,24 @@
  * Created by PhpStorm.
  * User: Yu-Hsien Chou
  * Date: 2019/3/10
- * Time: 下午 12:11
+ * Time: 下午 11:21
  */
 
 namespace App\Controllers;
 
-use BotMan\BotMan\BotMan;
+
 use System\Controller\BaseController;
 
-class FacebookController extends BaseController
+class ChoupgController extends BaseController
 {
-
     public function __construct()
     {
         parent::__construct();
         $this->setDriverName('Facebook');
-
+        $this->setCustomConfigPath(APPLICATION_CONFIG_ROOT . '/' . 'ChouFBPage.php');
     }
 
-    public function action()
+    function action()
     {
         // TODO: Implement action() method.
         $this->botMan->hears('Miles' , function (BotMan $botMan) {
@@ -31,4 +30,5 @@ class FacebookController extends BaseController
             $botMan->reply("hello world");
         });
     }
+
 }

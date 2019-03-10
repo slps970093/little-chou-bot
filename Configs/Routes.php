@@ -7,6 +7,6 @@
  */
 
  return array(
-     'facebook' => App\Controllers\FacebookController::class
+     'choupgbot' => App\Controllers\ChoupgController::class
  );
 ?>
