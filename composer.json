@@ -1,0 +1,12 @@
+{
+    "require": {
+        "botman/botman": "^2.4",
+        "botman/driver-facebook": "^1.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "System\\": "System",
+            "App\\": "App"
+        }
+    }
+}
