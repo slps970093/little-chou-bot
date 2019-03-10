@@ -25,7 +25,7 @@ $config = [
     ]
 ];
 
-var_dump($config);
+
 
 $botMan=BotManFactory::create($config);
 // Give the bot something to listen for.
