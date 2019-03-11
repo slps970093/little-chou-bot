@@ -31,13 +31,19 @@ class ChoupgController extends BaseController
 
     public function sendHelperMessage() {
         $this->botMan->hears('get help' , function ( BotMan $botMan ) {
-            ButtonTemplate::create("冒險者你好，歡迎使用機器人服務！！！ 更多功能正在開發中～～")
-                ->addButton(ElementButton::create('如何預約外拍')
-                ->type('postback')
-                ->payload('如何預約外拍'))
-                ->addButton(
-                    ElementButton::create("我要聽小周開軟體講座")->type('postback')->payload("我要聽小周開軟體講座!!!")
-                );
+            $botMan->reply(
+                ButtonTemplate::create("冒險者你好，歡迎使用機器人服務！！！ 更多功能正在開發中～～")
+                    ->addButton(
+                        ElementButton::create('如何預約外拍')
+                            ->type('postback')
+                            ->payload('如何預約外拍')
+                    )
+                    ->addButton(
+                        ElementButton::create("我要聽小周開軟體講座")
+                            ->type('postback')
+                            ->payload("我要聽小周開軟體講座!!!")
+                    )
+            );
         });
     }
 }
