@@ -10,6 +10,7 @@ namespace App\Controllers;
 
 
 use System\Controller\BaseController;
+use BotMan\BotMan\BotMan;
 
 class ChoupgController extends BaseController
 {
@@ -25,6 +26,9 @@ class ChoupgController extends BaseController
         // TODO: Implement action() method.
         $this->botMan->hears('Miles' , function (BotMan $botMan) {
             $botMan->reply("你是不是推坑王？？");
+        });
+        $this->botMan->hears('我們一起學貓叫' , function (BotMan $botMan ) {
+            $botMan->reply("一起 喵喵喵喵喵");
         });
     }
 
