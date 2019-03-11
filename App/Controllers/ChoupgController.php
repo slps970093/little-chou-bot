@@ -45,5 +45,11 @@ class ChoupgController extends BaseController
                     )
             );
         });
+        $this->botMan->hears("我要聽小周開軟體講座!!!", function ( BotMan $botMan ) {
+           $botMan->reply("這位施主\n你應該叫 Miles 那些 Laravel 固定班底多講一點");
+        });
+        $this->botMan->hears("如何預約外拍", function ( BotMan $botMan) {
+            $botMan->reply("預約外拍功能開發中....請稍後");
+        });
     }
 }
