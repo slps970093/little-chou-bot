@@ -38,6 +38,6 @@ class ChoupgController extends BaseController
                 ->addButton(
                     ElementButton::create("我要聽小周開軟體講座")->type('postback')->payload("我要聽小周開軟體講座!!!")
                 );
-        })
+        });
     }
 }
