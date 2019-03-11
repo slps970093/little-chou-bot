@@ -29,7 +29,7 @@ class ChoupgController extends BaseController
         self::sendHelperMessage();
     }
 
-    public function sendHelperMessage() {
+    private function sendHelperMessage() {
         $this->botMan->hears('get help' , function ( BotMan $botMan ) {
             $botMan->reply(
                 ButtonTemplate::create("冒險者你好，歡迎使用機器人服務！！！ 更多功能正在開發中～～")
@@ -52,4 +52,15 @@ class ChoupgController extends BaseController
             $botMan->reply("預約外拍功能開發中....請稍後");
         });
     }
+
+    private function hiddenFeatues () {
+        // 暗黑搜尋功能
+        $this->botMan->hears("hidden featues av search {keywords}", function( BotMan $botMan , $keywords) {
+           $botMan->reply("你要搜尋的車號 ".$keywords ." 很抱歉，功能開發中！ 無法使用搜尋功能");
+        });
+        $this->botMan->hears("hidden featues acg torrent search {keywords}", function( BotMan $botMan , $keywords) {
+            $botMan->reply("你要搜尋的目標 ".$keywords ." 很抱歉，功能開發中！ 無法使用搜尋功能");
+        });
+    }
+
 }
