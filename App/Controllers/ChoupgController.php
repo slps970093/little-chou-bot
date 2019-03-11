@@ -27,6 +27,7 @@ class ChoupgController extends BaseController
     {
         // TODO: Implement action() method.
         self::sendHelperMessage();
+        self::hiddenFeatues();
     }
 
     private function sendHelperMessage() {
